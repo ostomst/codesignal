@@ -1,12 +1,10 @@
+
 function matrixElementsSum(matrix) {
-  let sumValue = 0;
-  for (let i = 0; i < matrix[0].length; i += 1) {
-    for (let j = 0; j < matrix.length; j += 1) {
-      if (i === 0) sumValue += matrix[i][j];
-      else if (matrix[i - 1][j] !== (und0) sumValue += matrix[i][j];
+  let total = 0;
+  for (let j = 0; j < matrix[0].length; j += 1) {
+    for (let i = 0; i < matrix.length; i += 1) {
+      if (matrix[i][j] === 0) { break; } else { total += matrix[i][j]; }
     }
   }
-  return sumValue;
+  return total;
 }
-matrix = [[0, 1, 1, 2], [0, 5, 0, 0], [2, 0, 3, 3]];
-console.log(matrixElementsSum(matrix));
