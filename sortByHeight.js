@@ -1,19 +1,15 @@
-const sortByHeight = (arr) => {
-  const sort = arr.filter((h) => h > 0).sort((a, b) => a - b);
-  return arr.map((p) => {
-    if (p !== -1) {
-      return sort.shift();
+function sortByHeight(a) {
+  const heightWithoutTree = a.filter((number) => number > 0);
+  const sortWithoutTree = heightWithoutTree.sort((element1, element2) => element1 - element2);
+  let position = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== -1) {
+      a[i] = sortWithoutTree[position];
+      position += 1;
     }
-    return -1;
-  });
-};
-
-
-function sortByHeight1(ar) {
-  const filtered = ar.filter((val) => val !== -1);
-  const sorted = filtered.sort((a, b) => a - b);
-  return ar.map((val) => (val === -1 ? -1 : sorted.shift()));
+  }
+  return [...a];
 }
 
-const arr = [2, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1];
-console.log(sortByHeight1(arr));
+const a = [23, 54, -1, 43, 1, -1, -1, 77, -1, -1, -1, 3];
+console.log(sortByHeight(a));
